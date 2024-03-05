@@ -8,6 +8,6 @@ startButton.addEventListener("click", function () {
 });
 
 function playMouseClickSound() {
-    const audio = new Audio("https://toque123.com/wp-content/uploads/2021/11/Windows-XP-Startup.mp3"); // Substitua "click-sound.mp3" pelo caminho do seu som
+    const audio = new Audio("https://toque123.com/wp-content/uploads/2021/11/Windows-XP-Startup.mp3");
     audio.play();
 }
