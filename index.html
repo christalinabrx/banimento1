@@ -3,16 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Jeitinho dramático de dizer que não tô nem aí: Banimento 1</title>
+    <style>
+        body {
+            margin: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000000; /* Cor de fundo escura */
+        }
+
+        video {
+            width: 80%; /* 80% da largura da tela */
+            max-width: 900px; /* Largura máxima de 800px */
+            border: 0px solid #000000; /* Cor de borda para se assemelhar a um vinho escuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra para destacar o vídeo */
+        }
+    </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <div class="text-container">
-            <p class="welcome-text">Bem-vindo! Este é um lugar especial.</p>
-        </div>
-        <button id="startButton">Iniciar Banimento</button>
-    </div>
-    <script src="scripts.js"></script>
+    <video controls id="banimento1">
+        <source src="videos/banimento1.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <script>
+        var video = document.getElementById("banimento1");
+
+        video.addEventListener("click", function() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    </script>
 </body>
 </html>

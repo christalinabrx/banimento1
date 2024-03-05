@@ -3,7 +3,7 @@
     const video = document.getElementById("banimento1");
 
 // Defina o tamanho inicial do player
-let playerSize = 20;
+let playerSize = 50;
 
 video.addEventListener("click", function () {
     if (video.paused) {
