@@ -32,7 +32,7 @@
         var video = document.getElementById("banimento1");
 
         video.addEventListener("click", function() {
-            if (video.paused) {
+            if (video.play) {
                 video.play();
                 document.body.requestFullscreen().then(() => {
                     // Nada a fazer aqui, apenas permitindo tela cheia.
