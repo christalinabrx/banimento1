@@ -3,54 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banimento 1 : Jeitinho dramático de dizer que não tô nem aí </title>
+    <title>Banimento 1: Jeitinho dramático de dizer que não tô nem aí</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
-            background-color: black; /* Cor de fundo preta */
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-color: #000; /* Fundo preto */
         }
 
         video {
-            width: 100%; /* 100% da largura da tela */
-            height: 100%;
-            object-fit: cover; /* Para cobrir toda a área do vídeo */
+            width: 100vw; /* Largura da tela inteira */
+            height: 100vh; /* Altura da tela inteira */
         }
     </style>
 </head>
 <body>
-    <video controls id="banimento1">
-        <source src="videos/banimento1.mp4" type="video/mp4">
+    <video id="banimento1" preload="metadata" autoplay loop muted>
+        <source src="banimento1.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
     <script>
-        var video = document.getElementById("banimento1");
+        var video = document.getElementById("meuVideo");
+        var volume = 0;
 
+        // Inicia a reprodução em tela cheia ao clicar no vídeo
         video.addEventListener("click", function() {
-            if (video.play) {
-                video.play();
-                document.body.requestFullscreen().then(() => {
-                    // Nada a fazer aqui, apenas permitindo tela cheia.
-                }).catch((err) => {
-                    console.error(`Erro ao entrar em tela cheia: ${err.message}`);
+            if (!document.fullscreenElement) {
+                video.requestFullscreen().then(() => {
+                    video.play();
                 });
-            } else {
-                video.pause();
             }
         });
 
-        // Aumenta gradualmente o volume (não ultrapassa 70%)
-        var volumeIncreaseRate = 0.02; // Ajuste conforme necessário
-        var maxVolume = 0.7;
-        
+        // Aumenta gradualmente o volume até 70%
         video.addEventListener("timeupdate", function() {
-            if (video.volume < maxVolume) {
-                video.volume += volumeIncreaseRate;
+            if (volume < 0.7) {
+                volume += 0.01;
+                video.volume = volume;
             }
         });
     </script>
