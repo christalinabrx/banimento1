@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.welcome-container {
+    text-align: center;
+}
+
+.text-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.welcome-text {
+    text-align: justify;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
