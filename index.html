@@ -3,39 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banimento 1 : Jeitinho dramático de dizer que não tô nem aí </title>
+    <title>Meu Site de Vídeo</title>
     <style>
         body {
             margin: 0;
+            overflow: hidden;
+            background-color: black; /* Cor de fundo preta */
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: black; /* Cor de fundo preta */
-            overflow: hidden; /* Impede a barra de rolagem */
         }
 
         video {
-            width: 100vw; /* 100% da largura da tela */
-            height: 100vh; /* 100% da altura da tela */
+            width: 100%; /* 100% da largura da tela */
+            height: 100%;
+            object-fit: cover; /* Para cobrir toda a área do vídeo */
         }
     </style>
 </head>
 <body>
     <video controls id="banimento1">
-        <source src="banimento1.mp4" type="video/mp4">
+        <source src="videos/banimento1.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
     <script>
-        var video = document.getElementById("meuVideo");
+        var video = document.getElementById("banimento1");
 
         video.addEventListener("click", function() {
             if (video.paused) {
                 video.play();
-                video.requestFullscreen(); /* Coloca o vídeo em tela cheia */
+                document.body.requestFullscreen().then(() => {
+                    // Nada a fazer aqui, apenas permitindo tela cheia.
+                }).catch((err) => {
+                    console.error(`Erro ao entrar em tela cheia: ${err.message}`);
+                });
             } else {
                 video.pause();
+            }
+        });
+
+        // Aumenta gradualmente o volume (não ultrapassa 70%)
+        var volumeIncreaseRate = 0.02; // Ajuste conforme necessário
+        var maxVolume = 0.7;
+        
+        video.addEventListener("timeupdate", function() {
+            if (video.volume < maxVolume) {
+                video.volume += volumeIncreaseRate;
             }
         });
     </script>
