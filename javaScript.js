@@ -3,7 +3,7 @@ const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function () {
     playMouseClickSound();
     setTimeout(function(){
-        window.location.href = "https://christalinabrx.github.io/banimento1/";
+        window.location.href = "https://christalinabrx.github.io/banimento1/banimento1";
     }, 300); // Redirecionar após 300ms (ajuste conforme necessário)
 });
 
