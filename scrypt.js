@@ -13,7 +13,7 @@ video.addEventListener("click", function () {
         }
     }
 
-    const video = document.getElementById("myVideo");
+    const video = document.getElementById("banimento1");
 
 // Defina o tamanho inicial do player
 let playerSize = 100;
